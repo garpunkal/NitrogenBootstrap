@@ -4,9 +4,10 @@ const sass = require("gulp-sass");
 const plumber = require("gulp-plumber");
 const sourcemaps = require("gulp-sourcemaps");
 const postcss = require("gulp-postcss");
-const autoprefixer = require("autoprefixer");
 const pathResolve = require("../lib/pathResolve");
+const postCssImport= require('postcss-import');
 const tailwindcss = require('tailwindcss');
+const postcssPresetEnv= require('postcss-preset-env');
 
 gulp.task("stylesheets", function () {
   paths = {
@@ -27,13 +28,9 @@ gulp.task("stylesheets", function () {
     )
     .pipe(
       postcss([
-        tailwindcss(), 
-        autoprefixer({
-          overrideBrowserslist: [
-            "last 2 version",
-            "> 2%"
-          ]
-        })
+        postCssImport(),
+        tailwindcss(),         
+        postcssPresetEnv({ stage: 1 })        
       ])
     )
     .pipe(gulpif(production, sass({ outputStyle: "compressed"})))
