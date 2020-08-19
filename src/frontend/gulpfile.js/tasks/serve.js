@@ -5,10 +5,11 @@ const port = process.env.SERVER_PORT || 3000;
 gulp.task('serve', function (cb) {
       
     browserSync.init({
-        //injectChanges: true,
         server: PATHS.build,
         notify: false,
         port: port,
+        //open:false,
+        startPath: '/site/index.html'
     });
     cb();
 });
