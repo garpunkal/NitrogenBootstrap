@@ -1,11 +1,11 @@
 const gulp = require("gulp");
-const globalPaths = require("../../package.json").paths;
-const data = require("../../" + globalPaths.html.data);
 const nunjucks = require("gulp-nunjucks");
 const rename = require("gulp-rename");
 const htmlmin = require("gulp-htmlmin");
 const gulpif = require("gulp-if");
 const flags = require("../config/flags");
+const globalPaths = require("../../package.json").paths;
+const data = require("../../" + globalPaths.html.data);
 
 gulp.task("html", function () {
 

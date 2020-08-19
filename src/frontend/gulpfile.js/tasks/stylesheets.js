@@ -20,8 +20,8 @@ gulp.task("stylesheets", function () {
     .pipe(plumber())
    
     .pipe(sass({
-      includePaths: ["node_modules", "scss"]
-    }).on("error", sass.logError))
+       includePaths: ["node_modules", "scss"]
+      }).on("error", sass.logError))
 
     .pipe(postcss([postCssImport(), tailwindcss(), postcssPresetEnv({
       stage: 1 //https://preset-env.cssdb.org/features#stage-1

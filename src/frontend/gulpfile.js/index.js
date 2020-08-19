@@ -1,9 +1,7 @@
 const gulp = require("gulp");
 const requireDir = require('require-dir');
 
-requireDir("./tasks", {
-    recurse: true
-});
+requireDir("./tasks");
 
 gulp.task('default',
     gulp.series([
