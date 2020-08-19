@@ -10,6 +10,6 @@ function browserReload(cb) {
 gulp.task('watch', function (cb) {
   gulp.watch(globalPaths.html.source + globalPaths.html.filter, gulp.series("html", browserReload));
   gulp.watch(globalPaths.css.source + globalPaths.css.filter, gulp.series("stylesheets", browserReload));
-  gulp.watch(globalPaths.javascripts.source + globalPaths.javascripts.filter, gulp.series("webpack", browserReload));   
+  gulp.watch(globalPaths.javascripts.source + globalPaths.javascripts.filter, gulp.series("scripts", browserReload));   
   cb();
 });

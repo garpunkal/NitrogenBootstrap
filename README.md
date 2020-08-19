@@ -39,7 +39,6 @@ This is a frontend framework that uses the following components:
     - will run production minified output, and will migrate to      integrated website folder specified in paths. 
 
 ## Site
-The output of the browsersync folder, will be at: 
 http://localhost:3000/
 
 

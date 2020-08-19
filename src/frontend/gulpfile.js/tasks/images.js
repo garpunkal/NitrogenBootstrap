@@ -1,8 +1,8 @@
 const gulp = require("gulp");
 const imagemin = require("gulp-imagemin");
-const globalPaths = require("../../package.json").paths;
 const gulpif = require("gulp-if");
 const flags = require("../config/flags");
+const globalPaths = require("../../package.json").paths;
 
 gulp.task("images", function () {
   return gulp

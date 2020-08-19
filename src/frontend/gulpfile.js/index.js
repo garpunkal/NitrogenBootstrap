@@ -1,9 +1,7 @@
 const gulp = require("gulp");
 const requireDir = require('require-dir');
 
-requireDir("./tasks", {
-    recurse: true
-});
+requireDir("./tasks");
 
 gulp.task('default',
     gulp.series([
@@ -12,7 +10,7 @@ gulp.task('default',
             "html",
             "stylesheets",
             "images",
-            "webpack",
+            "scripts",
             "fonts"
         ),
         "serve",
@@ -27,7 +25,7 @@ gulp.task('build',
             "html",
             "stylesheets",
             "images",
-            "webpack",
+            "scripts",
             "fonts"
         )      
     ]));
@@ -40,7 +38,7 @@ gulp.task('migrate',
             "html",
             "stylesheets",
             "images",
-            "webpack",
+            "scripts",
             "fonts"
         ),
         "migrate"
