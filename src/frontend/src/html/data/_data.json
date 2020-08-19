@@ -1,1 +1,24 @@
-{}
+{
+    "people": [
+        {
+            "name": "Paul Marden",
+            "jobTitle": "Managing Director",
+            "image" : "https://carbonsix.digital/media/1110/portrait-paul-marden-umbraco-certified-master-colour.jpg"
+        },
+        {
+            "name": "Gareth Wright",
+            "jobTitle": "Development Manager", 
+            "image": "https://carbonsix.digital/media/1292/portrait-gareth-wright-umbraco-certified-expert.jpg"
+        },       
+        {
+            "name": "Alex Meyers",
+            "jobTitle": "Senior Developer",
+            "image" : "https://carbonsix.digital/media/1114/portrait-alex-meyers-umbraco-certified-master-colour.jpg"
+        },
+        {
+            "name": "Karl Butler",
+            "jobTitle": "Developer",
+            "image" : "https://carbonsix.digital/media/1115/portrait-karl-butler-umbraco-certified-developer-colour.jpg"
+        }
+    ]
+} 
