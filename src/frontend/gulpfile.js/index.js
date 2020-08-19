@@ -10,7 +10,7 @@ gulp.task('default',
             "html",
             "stylesheets",
             "images",
-            "webpack",
+            "scripts",
             "fonts"
         ),
         "serve",
@@ -25,7 +25,7 @@ gulp.task('build',
             "html",
             "stylesheets",
             "images",
-            "webpack",
+            "scripts",
             "fonts"
         )      
     ]));
@@ -38,7 +38,7 @@ gulp.task('migrate',
             "html",
             "stylesheets",
             "images",
-            "webpack",
+            "scripts",
             "fonts"
         ),
         "migrate"
