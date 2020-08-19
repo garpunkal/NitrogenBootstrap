@@ -7,6 +7,6 @@ gulp.task("set-prod-node-env", function (done) {
 
 gulp.task("global-production-true", function (done) {
   global.production = true;
-  PATHS.buildDest = PATHS.finalDest;
+  PATHS.build = PATHS.dist;
   done();
 });

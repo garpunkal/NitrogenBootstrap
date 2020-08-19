@@ -1,14 +1,7 @@
 const gulp = require("gulp");
 const browserSync = require("browser-sync");
-const pathResolve = require("../lib/pathResolve");
 
 gulp.task('watch', function (cb) {
-
-  paths = {
-    htmlSrc: pathResolve(PATHS.BASE, PATHS.html.src, "/**/*"),
-    stylesheetsSrc: pathResolve(PATHS.BASE, PATHS.stylesheets.src, "/**/*.scss"),
-    javascriptsSrc: pathResolve(PATHS.BASE, PATHS.javascripts.src, "/**/*.js")
-  };
 
   gulp.watch("./src/html/**/*",
     function (done) {

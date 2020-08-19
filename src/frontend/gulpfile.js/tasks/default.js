@@ -5,7 +5,7 @@ gulp.task("set-dev-node-env", function (done) {
   done();
 });
 
-gulp.task("global-production-false", function(done) { 
+gulp.task("global-production-false", function (done) {
   global.production = false;
   done();
 });

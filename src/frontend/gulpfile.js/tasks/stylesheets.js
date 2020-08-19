@@ -11,10 +11,8 @@ const postcssPresetEnv = require('postcss-preset-env');
 
 gulp.task("stylesheets", function () {
   paths = {
-    src: [
-      pathResolve(PATHS.BASE, PATHS.stylesheets.src, "**/*.scss")
-    ],
-    dest: pathResolve(PATHS.buildDest, PATHS.stylesheets.dest)
+    src: [pathResolve(PATHS.base, PATHS.stylesheets.source, "**/*.scss")],
+    dest: pathResolve(PATHS.build, PATHS.stylesheets.destination)
   };
 
   return gulp

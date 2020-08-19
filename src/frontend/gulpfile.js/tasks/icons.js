@@ -4,8 +4,8 @@ const pathResolve = require("../lib/pathResolve");
 
 gulp.task("icons", function() {
   paths = {
-    src: [pathResolve(PATHS.BASE, PATHS.icons.src, "*.svg")],
-    dest: pathResolve(PATHS.buildDest, PATHS.icons.dest)
+    src: [pathResolve(PATHS.base, PATHS.icons.source, "*.svg")],
+    dest: pathResolve(PATHS.build, PATHS.icons.destination)
   };
 
   return gulp

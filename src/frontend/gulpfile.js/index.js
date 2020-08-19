@@ -1,10 +1,8 @@
 const gulp = require("gulp");
 const requireDir = require('require-dir'); // load tasks
-global.PATHS = require("./path-config");
+global.PATHS = require("./paths");
 
-requireDir("./tasks", {
-    recurse: true
-});
+requireDir("./tasks", { recurse: true });
 
 gulp.task('default',
     gulp.series([
@@ -17,8 +15,7 @@ gulp.task('default',
         "webpack",
         "icons",
         "fonts",
-        "static",
-        "app", 
+        "static",        
         "serve",        
         "watch"     
     ]));

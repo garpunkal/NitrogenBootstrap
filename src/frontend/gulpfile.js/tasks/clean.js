@@ -1,12 +1,12 @@
 const gulp = require("gulp");
 const clean = require("del").sync;
 
-gulp.task("clean:build", function(done) {
-  clean([PATHS.buildDest]);  
-  done();
+gulp.task("clean:build", function(cb) {
+  clean([PATHS.build]);  
+  cb();
 });
 
-gulp.task("clean:production", function(done) {
-  clean([PATHS.finalDest]);
-  done();
+gulp.task("clean:production", function(cb) {
+  clean([PATHS.dist]);
+  cb();
 });
