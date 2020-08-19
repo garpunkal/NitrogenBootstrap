@@ -5,9 +5,9 @@ const plumber = require("gulp-plumber");
 const sourcemaps = require("gulp-sourcemaps");
 const postcss = require("gulp-postcss");
 const pathResolve = require("../lib/pathResolve");
-const postCssImport= require('postcss-import');
+const postCssImport = require('postcss-import');
 const tailwindcss = require('tailwindcss');
-const postcssPresetEnv= require('postcss-preset-env');
+const postcssPresetEnv = require('postcss-preset-env');
 
 gulp.task("stylesheets", function () {
   paths = {
@@ -29,11 +29,16 @@ gulp.task("stylesheets", function () {
     .pipe(
       postcss([
         postCssImport(),
-        tailwindcss(),         
-        postcssPresetEnv({ stage: 1 })        
+        tailwindcss(),
+        postcssPresetEnv({
+          browsers: "last 2 versions",
+          stage: 1 //https://preset-env.cssdb.org/features#stage-1
+        })
       ])
     )
-    .pipe(gulpif(production, sass({ outputStyle: "compressed"})))
+    .pipe(gulpif(production, sass({
+      outputStyle: "compressed"
+    })))
     .pipe(sourcemaps.write("."))
     .pipe(gulp.dest(paths.dest));
 });
