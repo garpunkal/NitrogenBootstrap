@@ -11,6 +11,7 @@ gulp.task("migrate", function () {
     .src([
       globalPaths.dist + "**/*.css",
       globalPaths.dist + "**/*.js",
+      globalPaths.dist + "**/*{ttf,woff,woff2}",
       globalPaths.dist + "**/*{jpg,png,svg}"
     ])
     .pipe(gulp.dest(globalPaths.migrate));

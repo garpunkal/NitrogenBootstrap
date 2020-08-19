@@ -263,3 +263,7 @@ ModelManifest.xml
 **/App_Data/cache/
 **/App_Data/umbraco.licensing.log.txt
 /.idea
+
+**/_build/
+**/_dist/
+**/assets/
