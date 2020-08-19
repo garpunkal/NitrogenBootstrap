@@ -23,17 +23,20 @@ This is a frontend framework that uses the following components:
 - Yarn
     - https://classic.yarnpkg.com/en/docs/install/#windows-stable
     
-- NVM 
-    - https://github.com/coreybutler/nvm-windows/releases
-
 
 ## Use
 - ``` yarn ```
     - install packages
+
 - ``` yarn start ```
-    - will browsersync
+    - will serve and browsersync
+
 -  ``` yarn build ```
-    - will run production output, and will migrate to integrated website folder. 
+    - will run production minified output
+
+-   ``` yarn migrate ```
+    
+    - will run production minified output, and will migrate to      integrated website folder specified in paths. 
 
 ## Site
 The output of the browsersync folder, will be at: 

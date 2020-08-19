@@ -29,6 +29,19 @@ gulp.task('build',
             "images",
             "webpack",
             "fonts"
+        )      
+    ]));
+
+gulp.task('migrate',
+    gulp.series([
+        "distBuildPath",
+        "clean:production",
+        gulp.parallel(
+            "html",
+            "stylesheets",
+            "images",
+            "webpack",
+            "fonts"
         ),
         "migrate"
     ]));

@@ -17,8 +17,9 @@
   ],
   "main": "gulpfile.js",
   "scripts": {
-    "start": "gulp --maps",
-    "build": "gulp build --minify",
+    "start": "gulp --sourcemaps",
+    "build": "gulp build --minified",
+    "migrate": "gulp migrate --minified",
     "fix-code": "prettier-eslint --write ./javascripts/**/*.{js,jsx}",
     "fix-styles": "prettier-stylelint --write ./stylesheets/**/*.{css,scss}"
   },
