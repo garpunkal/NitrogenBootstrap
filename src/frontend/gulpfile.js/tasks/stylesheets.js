@@ -14,15 +14,24 @@ gulp.task("stylesheets", function () {
 
   return gulp
     .src(globalPaths.css.source + globalPaths.css.filter)
+    
     .pipe(gulpif(flags.maps, sourcemaps.init()))
+   
     .pipe(plumber())
-    .pipe(sass({ includePaths: ["node_modules", "scss"] }).on("error", sass.logError))
+   
+    .pipe(sass({
+      includePaths: ["node_modules", "scss"]
+    }).on("error", sass.logError))
+
     .pipe(postcss([postCssImport(), tailwindcss(), postcssPresetEnv({
       stage: 1 //https://preset-env.cssdb.org/features#stage-1
     })]))
+  
     .pipe(gulpif(flags.minify, sass({
       outputStyle: "compressed"
     })))
+    
     .pipe(gulpif(flags.maps, sourcemaps.write("maps")))
+  
     .pipe(gulp.dest(globalPaths.build + globalPaths.css.destination));
 });
