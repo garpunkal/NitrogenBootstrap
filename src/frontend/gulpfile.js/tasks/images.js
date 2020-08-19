@@ -1,13 +1,19 @@
 const gulp = require("gulp");
-const pathResolve = require("../lib/pathResolve");
+const imagemin = require("gulp-imagemin");
+const globalPaths = require("../../package.json").paths;
+const gulpif = require("gulp-if");
 
 gulp.task("images", function () {
-  paths = {
-    src: [pathResolve(PATHS.base, PATHS.images.source, "**/*{jpg,png,svg}")],
-    dest: pathResolve(PATHS.build, PATHS.images.destination)
-  };
-
   return gulp
-    .src(paths.src)
-    .pipe(gulp.dest(paths.dest));
+    .src(globalPaths.images.source + globalPaths.images.filter)
+    .pipe(gulpif(production, imagemin([
+        imagemin.gifsicle({ interlaced: true }),
+        imagemin.mozjpeg({ quality: 65, progressive: true }),
+        imagemin.optipng({ optimizationLevel: 5 }),
+        imagemin.svgo({
+          plugins: [{ removeViewBox: true }, { cleanupIDs: false }],
+        }),
+      ])
+    )
+    .pipe(gulp.dest(globalPaths.build + globalPaths.images.destination)));
 });

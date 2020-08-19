@@ -1,5 +1,6 @@
 const gulp = require("gulp");
 const browserSync = require("browser-sync");
+const globalPaths = require("../../package.json").paths;
 
 function browserReload(cb) {
   browserSync.reload();
@@ -7,8 +8,8 @@ function browserReload(cb) {
 }
 
 gulp.task('watch', function (cb) {
-  gulp.watch("./src/html/**/*", gulp.series("html", browserReload));
-  gulp.watch("./src/stylesheets/**/*", gulp.series("stylesheets", browserReload));
-  gulp.watch("./src/javascripts/**/*", gulp.series("webpack", browserReload));   
+  gulp.watch(globalPaths.html.source + globalPaths.html.filter, gulp.series("html", browserReload));
+  gulp.watch(globalPaths.css.source + globalPaths.css.filter, gulp.series("stylesheets", browserReload));
+  gulp.watch(globalPaths.javascripts.source + globalPaths.javascripts.filter, gulp.series("webpack", browserReload));   
   cb();
 });

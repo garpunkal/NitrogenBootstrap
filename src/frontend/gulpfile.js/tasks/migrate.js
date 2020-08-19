@@ -1,22 +1,18 @@
 const gulp = require("gulp");
 const clean = require("del").sync;
-const pathResolve = require("../lib/pathResolve");
+const globalPaths = require("../../package.json").paths;
 
-gulp.task("migrate", function (cb) {
-  paths = {
-    src: [
-      pathResolve(PATHS.base, PATHS.dist, "**/*.css"),
-      pathResolve(PATHS.base, PATHS.dist, "**/*.js"),
-      pathResolve(PATHS.base, PATHS.dist, "**/*{jpg,png,svg}")
-    ],
-    dest: pathResolve(PATHS.migrate)
-  };
+gulp.task("migrate", function () {
 
-  clean([pathResolve(PATHS.migrate)], {
+  clean([globalPaths.migrate], {
     force: true
   });
- 
+
   return gulp
-    .src(paths.src)
-    .pipe(gulp.dest(paths.dest));
+    .src([
+      globalPaths.dist + "**/*.css",
+      globalPaths.dist + "**/*.js",
+      globalPaths.dist + "**/*{jpg,png,svg}"
+    ])
+    .pipe(gulp.dest(globalPaths.migrate));
 });

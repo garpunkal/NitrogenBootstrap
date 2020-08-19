@@ -1,13 +1,8 @@
 const gulp = require("gulp");
-const pathResolve = require("../lib/pathResolve");
-
-paths = {
-  src: [pathResolve(PATHS.base, PATHS.fonts.source, "/**/*")],
-  dest: pathResolve(PATHS.build, PATHS.fonts.source)
-};
+const globalPaths = require("../../package.json").paths;
 
 gulp.task("fonts", function () {
   return gulp
-    .src(paths.src)
-    .pipe(gulp.dest(paths.dest));
+    .src(globalPaths.fonts.source + globalPaths.fonts.filter)
+    .pipe(gulp.dest(globalPaths.build + globalPaths.fonts.destination));
 });

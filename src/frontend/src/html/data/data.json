@@ -1,0 +1,24 @@
+{
+    "people": [
+        {
+            "name": "Paul Marden",
+            "jobTitle": "Managing Director",
+            "image": "portrait-paul-marden-umbraco-certified-master-colour.jpg"
+        },
+        {
+            "name": "Gareth Wright",
+            "jobTitle": "Development Manager", 
+            "image": "portrait-gareth-wright-umbraco-certified-expert.jpg"
+        },       
+        {
+            "name": "Alex Meyers",
+            "jobTitle": "Senior Developer",
+            "image": "portrait-alex-meyers-umbraco-certified-master-colour.jpg"
+        },
+        {
+            "name": "Karl Butler",
+            "jobTitle": "Developer",
+            "image": "portrait-karl-butler-umbraco-certified-developer-colour.jpg"
+        }
+    ]
+} 

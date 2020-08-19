@@ -1,29 +1,27 @@
 const gulp = require("gulp");
-const nunjucksRender = require("gulp-nunjucks-render");
-const pathResolve = require("../lib/pathResolve");
-const data = require("gulp-data");
-const path = require("path");
-const fs = require("fs");
+const globalPaths = require("../../package.json").paths;
+const data = require("../../" + globalPaths.html.data);
+const nunjucks = require("gulp-nunjucks");
+const rename = require("gulp-rename");
+const htmlmin = require("gulp-htmlmin");
+const gulpif = require("gulp-if");
+const flags = require("../config/flags");
 
 gulp.task("html", function () {
-  paths = {
-    src: [pathResolve(PATHS.base, PATHS.html.source, "**/*.html"),
-      "!" + pathResolve(PATHS.base, PATHS.html.source, "**/{components,layouts,shared,macros,data}/**")
-    ],
-    src_render: [pathResolve(PATHS.base, PATHS.html.source)],
-    dest: pathResolve(PATHS.build, PATHS.site)
-  };
-
-  const dataFunction = function () {
-    var dataPath = path.resolve(`${PATHS.base}/${PATHS.html.source}/data/_data.json`);
-    return JSON.parse(fs.readFileSync(dataPath, "utf8"));
-  };
 
   return gulp
-    .src(paths.src)
-    .pipe(data(dataFunction))
-    .pipe(nunjucksRender({
-      path: paths.src_render
-    }))
-    .pipe(gulp.dest(paths.dest));
+    .src([
+      globalPaths.html.source + globalPaths.html.filter,
+      "!" + globalPaths.html.source + globalPaths.html.templatingFilter
+    ])
+    .pipe(nunjucks.compile(data))
+    .pipe(
+      rename(function (path) {
+        path.extname = ".html";
+      })
+    )
+    .pipe(gulpif(flags.minify, htmlmin({
+      collapseWhitespace: true
+    })))
+    .pipe(gulp.dest(globalPaths.build));
 });

@@ -1,59 +1,35 @@
 const gulp = require("gulp");
-const gulpif = require("gulp-if");
+
 const path = require("path");
 const webpackStream = require("webpack-stream");
 const webpack = require("webpack");
-const pathResolve = require("../lib/pathResolve");
+const globalPaths = require("../../package.json").paths;
+const flags = require("../config/flags");
 
-const webpackConfig_default = {
-  context: path.resolve(PATHS.base, PATHS.javascripts.source),
+const webpackConfig = {
+  context: path.resolve(globalPaths.javascripts.source),
   entry: {
     app: ["./app.js"]
   },
-  mode: "development",
+  mode: flags.minify ? "production" : "development",
+  devtool: flags.maps ? "inline-source-map" : "none",
   output: {
-    path: path.resolve(PATHS.base, PATHS.javascripts.source),
-    filename: "app.js",
-    publicPath: "/javascripts/"
-  },
-  resolve: {
-    extensions: [".js", ".jsx"],
-    modules: [
-      path.resolve(PATHS.base, PATHS.javascripts.source),
-      path.resolve(PATHS.base, "node_modules")
-    ]
-  }
-};
-
-const webpackConfig_production = {
-  context: path.resolve(PATHS.base, PATHS.javascripts.source),
-  entry: {
-    app: ["./app.js"]
-  },
-  mode: "production",
-  output: {
-    path: path.resolve(PATHS.base, PATHS.javascripts.source),
+    path: path.resolve(globalPaths.javascripts.source),
     filename: "app.js",
     publicPath: "/assets/javascripts/"
   },
   resolve: {
     extensions: [".js", ".jsx"],
     modules: [
-      path.resolve(PATHS.base, PATHS.javascripts.source),
-      path.resolve(PATHS.base, "node_modules")
+      path.resolve(globalPaths.javascripts.source),
+      path.resolve(globalPaths.base, "node_modules")
     ]
   }
 };
 
 gulp.task("webpack", function () {
-  paths = {
-    src: [pathResolve(PATHS.base, PATHS.javascripts.source, "**/*.js")],
-    dest: pathResolve(PATHS.build, PATHS.javascripts.destination)
-  };
-
   return gulp
-    .src(paths.src)
-    .pipe(gulpif(!production, webpackStream(webpackConfig_default, webpack)))
-    .pipe(gulpif(production, webpackStream(webpackConfig_production, webpack)))
-    .pipe(gulp.dest(paths.dest));
+    .src(globalPaths.javascripts.source + globalPaths.javascripts.filter)
+    .pipe(webpackStream(webpackConfig, webpack))
+    .pipe(gulp.dest(globalPaths.build + globalPaths.javascripts.destination));
 });

@@ -1,0 +1,13 @@
+{% extends 'layouts/content.njk' %}
+{% from "components/placeCard.njk" import placeCard %}
+
+{% block content %}
+<div class="flex flex-wrap">
+    {% for person in people %}
+     <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 mb-4 m-5">
+        {{ placeCard(person) }}
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

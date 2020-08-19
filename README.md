@@ -37,7 +37,7 @@ This is a frontend framework that uses the following components:
 
 ## Site
 The output of the browsersync folder, will be at: 
-http://localhost:3000/site/ 
+http://localhost:3000/
 
 
 

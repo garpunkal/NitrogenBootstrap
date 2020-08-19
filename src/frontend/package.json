@@ -1,15 +1,24 @@
 {
   "name": "nitrogen",
   "version": "1.0.0",
-  "license": "MIT",
-  "engines": {
-    "node": ">=12.18.1",
-    "npm": ">=6.7.0"
+  "author": "garpunkal@gmail.com",
+  "license": "MIT", 
+  "homepage": "https://github.com/garpunkal/Nitrogen",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:/garpunkal/Nitrogen.git"
   },
+  "keywords": [
+    "javascript",
+    "gulp 4",
+    "nunjucks",
+    "webpack",
+    "tailwindcss"
+  ],
   "main": "gulpfile.js",
   "scripts": {
-    "start": "gulp",
-    "build": "gulp production",
+    "start": "gulp --maps",
+    "build": "gulp build --minify",
     "fix-code": "prettier-eslint --write ./javascripts/**/*.{js,jsx}",
     "fix-styles": "prettier-stylelint --write ./stylesheets/**/*.{css,scss}"
   },
@@ -19,35 +28,79 @@
     "@babel/core": "^7.10.3",
     "@babel/polyfill": "^7.10.1",
     "@babel/preset-env": "^7.10.3",
-    "@babel/register": "^7.10.3",      
-    "gulp": "^4.0.2",
-    "gulp-data": "^1.3.1",
+    "@babel/register": "^7.10.3",
+    "tailwindcss": "^1.4.6"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2",   
     "gulp-if": "^3.0.0",
-    "gulp-nunjucks-render": "^2.2.3",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-nunjucks": "^5.0.1",
     "gulp-plumber": "^1.2.1",
     "gulp-postcss": "^8.0.0",
     "gulp-sass": "^4.1.0",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-svgstore": "^7.0.1",
     "gulp-watch": "^5.0.1",
-    "isomorphic-fetch": "^2.2.1",     
-    "svgxuse": "^1.2.6",
-    "tailwindcss": "^1.4.6",
-    "webpack": "^4.43.0",
-    "webpack-stream": "^5.2.1"
-  },
-  "devDependencies": {
-    "browser-sync": "^2.26.7",
+    "gulp-rename": "^2.0.0",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-util": "^3.0.8",
     "del": "^5.1.0",
+    "postcss-import": "^12.0.1",
+    "postcss-preset-env": "^6.7.0",
     "prettier": "^2.0.5",
     "prettier-eslint": "^11.0.0",
     "prettier-eslint-cli": "^5.0.0",
     "prettier-stylelint": "^0.4.2",
     "require-dir": "^1.2.0",
+    "strip-loader": "^0.1.2",
     "stylelint-config-idiomatic-order": "^8.1.0",
     "stylelint-config-standard": "^20.0.0",
-    "postcss-import": "^12.0.1",     
-    "postcss-preset-env": "^6.7.0",
-    "strip-loader": "^0.1.2"
-  }
+    "svgxuse": "^1.2.6",
+    "webpack": "^4.43.0",
+    "webpack-stream": "^5.2.1"
+  },
+  "paths": {
+    "base": "./src/",    
+    "build": "./_build/",
+    "dist": "./_dist/",
+    "migrate": "../umbraco/nitrogen.web/assets",
+
+    "html": { 
+      "source": "./src/html",        
+      "filter": "/**/*.njk",      
+      "templatingFilter": "/**/{components,layouts,shared,macros,data}/**",
+      "data": "./src/html/data/data.json"
+    },  
+
+    "javascripts": {
+      "source": "./src/js",     
+      "filter": "/**/*.+(js)",    
+      "destination": "js"
+    },
+
+    "css": {
+      "source": "./src/scss",  
+      "filter": "/**/*.+(scss)",        
+      "destination": "css"
+    },
+
+    "images": {
+      "source": "./src/images",    
+      "filter": "/**/*.+(png|jpg|jpeg|gif|svg)",          
+      "destination": "images"
+    },
+
+    "fonts": {
+      "source": "./src/fonts",      
+      "filter": "/**/*.+(ttf|otf|woff|woff2|eot|svg)",   
+      "destination": "fonts"
+
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "IE >= 11"
+  ]
 }
