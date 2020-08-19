@@ -13,7 +13,7 @@ gulp.task("migrate", function () {
       globalPaths.dist + "**/*{scss,css}",
       globalPaths.dist + "**/*{ts,tsx,js,jsx,json}",
       globalPaths.dist + "**/*{ttf,otfwoff,woff2,eot,svg}",
-      globalPaths.dist + "**/*{png,jpgmjpeg,gif,svg}"
+      globalPaths.dist + "**/*{png,jpg,jpeg,gif,svg}"
     ])
     .pipe(gulp.dest(globalPaths.migrate));
 });
