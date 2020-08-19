@@ -10,10 +10,10 @@ gulp.task("migrate", function () {
 
   return gulp
     .src([
-      globalPaths.dist + "**/*{css}",
+      globalPaths.dist + "**/*{scss,css}",
       globalPaths.dist + "**/*{ts,tsx,js,jsx,json}",
-      globalPaths.dist + "**/*{ttf|otf|woff|woff2|eot|svg}",
-      globalPaths.dist + "**/*{png|jpg|jpeg|gif|svg}"
+      globalPaths.dist + "**/*{ttf,otf,woff,woff2,eot,svg}",
+      globalPaths.dist + "**/*{png,jpg,jpeg,gif,svg}"
     ])
     .pipe(gulp.dest(globalPaths.migrate));
 });
