@@ -3,7 +3,6 @@ const clean = require("del").sync;
 const globalPaths = require("../../package.json").paths;
 
 gulp.task("migrate", function () {
-
   clean([globalPaths.migrate], {
     force: true
   });
