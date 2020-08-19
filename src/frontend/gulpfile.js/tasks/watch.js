@@ -1,28 +1,14 @@
 const gulp = require("gulp");
 const browserSync = require("browser-sync");
 
+function browserReload(cb) {
+  browserSync.reload();
+  cb();
+}
+
 gulp.task('watch', function (cb) {
-
-  gulp.watch("./src/html/**/*",
-    function (done) {
-      gulp.task("html")();
-      browserSync.reload();
-      done();
-    });
-
-  gulp.watch("./src/stylesheets/**/*",
-    function (done) {
-      gulp.task("stylesheets")();
-      browserSync.reload();
-      done();
-    });
-
-  gulp.watch("./src/javascripts/**/*",
-    function (done) {
-      gulp.task("webpack")();
-      browserSync.reload();
-      done();
-    });
-
+  gulp.watch("./src/html/**/*", gulp.series("html", browserReload));
+  gulp.watch("./src/stylesheets/**/*", gulp.series("stylesheets", browserReload));
+  gulp.watch("./src/javascripts/**/*", gulp.series("webpack", browserReload));   
   cb();
 });
