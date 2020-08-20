@@ -1,7 +1,6 @@
 const gulp = require("gulp");
 const gulpif = require("gulp-if");
 const sass = require("gulp-sass");
-const plumber = require("gulp-plumber");
 const sourcemaps = require("gulp-sourcemaps");
 const postcss = require("gulp-postcss");
 const postCssImport = require('postcss-import');
@@ -16,9 +15,7 @@ gulp.task("stylesheets", function () {
     .src(globalPaths.css.source + globalPaths.css.filter)
     
     .pipe(gulpif(flags.maps, sourcemaps.init()))
-   
-    .pipe(plumber())
-   
+      
     .pipe(sass({
        includePaths: ["node_modules", "scss"]
       }).on("error", sass.logError))
