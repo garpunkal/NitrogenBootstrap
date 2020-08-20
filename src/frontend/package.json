@@ -17,10 +17,10 @@
   "author": "garpunkal@gmail.com",
   "main": "gulpfile.js",
   "scripts": {
-    "build": "gulp build --minified",
-    "migrate": "gulp migrate --minified",
+    "build": "gulp build --minified --purge --compress",
+    "migrate": "gulp migrate --minified --purge --compress",
     "prettier": "prettier --write \"./src/**/*.{scss,js,jsx,json}\"",
-    "start": "gulp --sourcemaps"
+    "start": "gulp --sourcemaps --compress"
   },
   "browserslist": [
     "> 1%",
@@ -35,12 +35,15 @@
     "autoprefixer": "^9.8.6",
     "bootstrap": "^4.5.2",
     "css-loader": "^4.2.1",
+    "gulp-purgecss": "^2.3.0",
     "jquery": "^3.5.1",
     "node-sass": "^4.14.1",
-    "popper.js": "^1.16.1"
+    "popper.js": "^1.16.1",
+    "precss": "^4.0.0"
   },
   "devDependencies": {
     "browser-sync": "^2.26.7",
+    "cssnano": "^4.1.10",
     "del": "^5.1.0",
     "gulp": "^4.0.2",
     "gulp-htmlmin": "^5.0.1",
@@ -52,7 +55,6 @@
     "gulp-sass": "^4.1.0",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-util": "^3.0.8",
-    "postcss-import": "^12.0.1",
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.0.5",

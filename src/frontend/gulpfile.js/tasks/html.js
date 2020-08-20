@@ -20,8 +20,6 @@ gulp.task("html", function () {
         path.extname = ".html";
       })
     )
-    .pipe(gulpif(flags.minify, htmlmin({
-      collapseWhitespace: true
-    })))
+    .pipe(gulpif(flags.minified, htmlmin({ collapseWhitespace: true })))
     .pipe(gulp.dest(globalPaths.build));
 });

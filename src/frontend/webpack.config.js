@@ -7,7 +7,7 @@ module.exports = {
     filename: 'app.js',
     path: path.resolve(__dirname, 'dist')
   },
-  mode: flags.minify ? "production" : "development",
+  mode: flags.minified ? "production" : "development",
   module: {
     rules: [
       {
