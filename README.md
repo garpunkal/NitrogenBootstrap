@@ -2,12 +2,11 @@
 
 This is a frontend framework that uses the following components: 
 
-- TailwindCSS - https://tailwindcss.com/
+- Bootstrap 4 - https://getbootstrap.com/
 - WebPack - https://webpack.js.org/
 - Nunjucks - https://mozilla.github.io/nunjucks/, https://mozilla.github.io/nunjucks/templating.html
 - Javascript - ES 6 Modules - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules
 - SASS - https://sass-lang.com/
-
 
 
 ## Prerequisites
@@ -34,8 +33,7 @@ This is a frontend framework that uses the following components:
 -  ``` yarn build ```
     - will run production minified output
 
--   ``` yarn migrate ```
-    
+-   ``` yarn migrate ```    
     - will run production minified output, and will migrate to      integrated website folder specified in paths. 
 
 ## Site

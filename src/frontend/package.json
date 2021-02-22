@@ -1,0 +1,102 @@
+{
+  "name": "nitrogen",
+  "version": "1.0.0",
+  "keywords": [
+    "javascript",
+    "gulp 4",
+    "nunjucks",
+    "webpack",
+    "tailwindcss"
+  ],
+  "homepage": "https://github.com/garpunkal/Nitrogen",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:/garpunkal/Nitrogen.git"
+  },
+  "license": "MIT",
+  "author": "garpunkal@gmail.com",
+  "main": "gulpfile.js",
+  "scripts": {
+    "build": "gulp build --minified --purge --compress",
+    "migrate": "gulp migrate --minified --purge --compress",
+    "prettier": "prettier --write \"./src/**/*.{scss,js,jsx,json}\"",
+    "start": "gulp --sourcemaps --compress"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "> 1%",
+    "iOS 7",
+    "last 3 iOS versions"
+  ],
+  "prettier": {
+    "tabWidth": 2
+  },
+  "dependencies": {
+    "@babel/core": "^7.12.17",
+    "@babel/preset-env": "^7.12.17",
+    "autoprefixer": "^10.2.4",
+    "bootstrap": "^4.6.0",
+    "css-loader": "^5.0.2",
+    "gulp-purgecss": "^4.0.2",
+    "jquery": "^3.5.1",
+    "node-sass": "^5.0.0",
+    "popper.js": "^1.16.1",
+    "precss": "^4.0.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.14",
+    "cssnano": "^4.1.10",
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-if": "^3.0.0",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-nunjucks": "^5.1.0",
+    "gulp-postcss": "^9.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-util": "^3.0.8",
+    "postcss": "^8.1.10",
+    "postcss-loader": "^5.0.0",
+    "postcss-preset-env": "^6.7.0",
+    "prettier": "^2.2.1",
+    "require-dir": "^1.2.0",
+    "sass-loader": "^11.0.1",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.23.0",
+    "webpack-stream": "^6.1.2"
+  },
+  "paths": {
+    "base": "./src/",
+    "build": "./_build/",
+    "dist": "./_dist/",
+    "migrate": "../umbraco/nitrogen.web/assets",
+    "html": {
+      "source": "./src/html",
+      "filter": "/**/*.njk",
+      "templatingFilter": "/**/{components,layouts,shared,macros,data}/**",
+      "data": "./src/html/data/data.json"
+    },
+    "javascripts": {
+      "source": "./src/js",
+      "filter": "/**/*.+(js)",
+      "destination": "js"
+    },
+    "css": {
+      "source": "./src/scss",
+      "filter": "/**/*.+(scss)",
+      "destination": "css"
+    },
+    "images": {
+      "source": "./src/images",
+      "filter": "/**/*.+(png|jpg|jpeg|gif|svg)",
+      "destination": "images"
+    },
+    "fonts": {
+      "source": "./src/fonts",
+      "filter": "/**/*.+(ttf|otf|woff|woff2|eot|svg)",
+      "destination": "fonts"
+    }
+  }
+}

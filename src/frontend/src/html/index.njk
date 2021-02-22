@@ -1,0 +1,21 @@
+{% extends 'layouts/content.njk' %}
+{% from "components/placeCard.njk" import placeCard %}
+{% from "components/slider.njk" import slider %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="card-deck mb-5">
+                    {% for person in people %}
+                        {{ placeCard(person) }}
+                    {% endfor %}
+                </div>
+
+                 {{ slider(people) }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
