@@ -15,7 +15,7 @@
     "url": "git@github.com:/garpunkal/Nitrogen.git"
   },
   "license": "MIT",
-  "author": "garpunkal@gmail.com",
+  "author": "garpunkal",
   "main": "gulpfile.js",
   "scripts": {
     "build": "gulp build --minified --purge --compress",
