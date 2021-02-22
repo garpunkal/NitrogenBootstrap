@@ -1,12 +1,13 @@
 {
   "name": "nitrogen",
   "version": "1.0.0",
+  "description": "A frontend framework for bootstrap projects",
   "keywords": [
     "javascript",
     "gulp 4",
     "nunjucks",
     "webpack",
-    "tailwindcss"
+    "bootstrap"
   ],
   "homepage": "https://github.com/garpunkal/Nitrogen",
   "repository": {
