@@ -18,23 +18,20 @@ This is a frontend framework that uses the following components:
 
 - Gulp
     - ```npm i gulp -g ```
-
-- Yarn
-    - https://classic.yarnpkg.com/en/docs/install/#windows-stable
     
 
 ## Use
-- ``` yarn ```
+- ``` npm install ```
     - install packages
 
-- ``` yarn start ```
+- ``` npm start ```
     - will serve and browsersync
 
--  ``` yarn build ```
+-  ``` npm run build ```
     - will run production minified output
 
--   ``` yarn migrate ```    
-    - will run production minified output, and will migrate to      integrated website folder specified in paths. 
+-  ``` npm run migrate ```    
+    - will run production minified output, and will migrate to  integrated website folder specified in paths. 
 
 ## Site
 http://localhost:3000/
