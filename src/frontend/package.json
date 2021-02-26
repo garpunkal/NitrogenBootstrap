@@ -9,10 +9,10 @@
     "webpack",
     "bootstrap"
   ],
-  "homepage": "https://github.com/garpunkal/Nitrogen",
+  "homepage": "https://github.com/garpunkal/NitrogenBootstrap",
   "repository": {
     "type": "git",
-    "url": "git@github.com:/garpunkal/Nitrogen.git"
+    "url": "git@github.com:/garpunkal/NitrogenBootstrap.git"
   },
   "license": "MIT",
   "author": "garpunkal",
